@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Functions 2</title>
+</head>
+<body>
+  <script type="text/javascript">
+
+//1
+    var timeCicle = function(func, delay) {
+      setTimeout(function() {
+        func();
+        timeCicle(func, delay);
+      }, delay);
+    }
+
+    var tikFunction = function() {
+      alert("tic");
+    }
+
+    timeCicle(tikFunction, 2000);
+
+//2
+
+  if (!Object.assign) {
+    Object.assign = function(target) {
+      for (var i = 0; i < arguments.length; i++) {
+        var obj = arguments[i];
+        for (var key in obj) {
+          target[key] = obj[key]; 
+        }
+      }
+      return target;
+    }
+  }
+
+  var defaults = { width: 100, height: 100 };
+  var options = { width: 150 };
+
+  var result = Object.assign({}, defaults, options);
+  console.log(result);
+
+
+  
+  </script>
+
+</body>
+</html>
